@@ -228,7 +228,10 @@
 
     // Slug menu -> alamat path di address bar. '' (kosong)/'publik' -> alamat utama ('/').
     function slugKeAlamat_(slug) {
-      return (!slug || slug === 'publik') ? '/' : ('/' + slug);
+      // PERUBAHAN (permintaan user): menu "Beranda" (dasborAppSiswa) TETAP di
+      // alamat utama ('/'), tidak perlu jadi /dasborAppSiswa - beda dari menu lain
+      // yang memang sengaja dapat alamat sendiri sesuai nama menunya.
+      return (!slug || slug === 'publik' || slug === 'dasborAppSiswa') ? '/' : ('/' + slug);
     }
     // Aplikasi di dalam iframe (Index.html, fungsi beriTahuUrlKeParent_) mengirim
     // pesan ini setiap kali menunya berpindah - address bar diubah lewat
