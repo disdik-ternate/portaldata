@@ -215,8 +215,19 @@
     // parameter). Parameter query yang sudah ada sebelumnya (mis. ?t=xxx dari tombol
     // "Buka di Tab Baru") TETAP didahulukan kalau ada - dipakai keperluan lain,
     // bukan slug menu biasa.
+    // PERUBAHAN (permintaan user): menu "Beranda" nama internalnya "dasborAppSiswa"
+    // (kurang enak dilihat di address bar) - dipetakan ke alamat yang lebih ramah
+    // "DasborManajemenData". Peta ini 2 arah: dipakai baik saat mengubah address
+    // bar (nama internal -> alamat) maupun saat membaca alamat balik ke iframe
+    // (alamat -> nama internal, supaya Apps Script tahu menu mana yang dimaksud).
+    const ALIAS_SLUG_MENU_ = { 'dasborAppSiswa': 'DasborManajemenData' };
+    const ALIAS_SLUG_MENU_BALIK_ = Object.fromEntries(Object.entries(ALIAS_SLUG_MENU_).map(([k, v]) => [v, k]));
+
     function ambilSlugDariPath_() {
-      return window.location.pathname.replace(/^\/+/, '').replace(/\/+$/, '');
+      const slugPath = window.location.pathname.replace(/^\/+/, '').replace(/\/+$/, '');
+      // Alamat pakai nama ramah (mis. "DasborManajemenData") - diterjemahkan balik
+      // ke nama internal (mis. "dasborAppSiswa") sebelum diteruskan ke Apps Script.
+      return ALIAS_SLUG_MENU_BALIK_.hasOwnProperty(slugPath) ? ALIAS_SLUG_MENU_BALIK_[slugPath] : slugPath;
     }
     function bangunSrcIframe_() {
       const params = window.location.search; // contoh: "?t=abc123"
@@ -226,12 +237,11 @@
     }
     document.getElementById('appFrame').src = bangunSrcIframe_();
 
-    // Slug menu -> alamat path di address bar. '' (kosong)/'publik' -> alamat utama ('/').
+    // Nama internal menu -> alamat path di address bar. '' (kosong)/'publik' -> alamat utama ('/').
     function slugKeAlamat_(slug) {
-      // PERUBAHAN (permintaan user): menu "Beranda" (dasborAppSiswa) TETAP di
-      // alamat utama ('/'), tidak perlu jadi /dasborAppSiswa - beda dari menu lain
-      // yang memang sengaja dapat alamat sendiri sesuai nama menunya.
-      return (!slug || slug === 'publik' || slug === 'dasborAppSiswa') ? '/' : ('/' + slug);
+      if (!slug || slug === 'publik') return '/';
+      if (ALIAS_SLUG_MENU_.hasOwnProperty(slug)) return '/' + ALIAS_SLUG_MENU_[slug];
+      return '/' + slug;
     }
     // Aplikasi di dalam iframe (Index.html, fungsi beriTahuUrlKeParent_) mengirim
     // pesan ini setiap kali menunya berpindah - address bar diubah lewat
