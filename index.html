@@ -4,34 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="io5gimUllWAA99ed-iczSsHleTac9bmilujgCCPTOHw" />
-  <title>Si-ManDa - Sistem Manajemen Data Pendidikan Dinas Pendidikan Kota Ternate</title>
-  <!-- PERUBAHAN (permintaan user - "buat agar aplikasi Si-ManDa terbaca di pencarian
-  Google"): halaman ini sebelumnya HANYA punya <title>, tanpa meta description/Open
-  Graph sama sekali - padahal inilah satu-satunya halaman dengan domain SENDIRI
-  (disdik-ternate.com, lewat GitHub Pages) yang realistis bisa muncul di hasil
-  pencarian Google (aplikasi Si-ManDa sendiri berjalan di URL script.google.com,
-  yang umumnya TIDAK diindeks Google dengan baik). Konten aplikasi sesungguhnya
-  dimuat lewat <iframe> dari domain lain (script.google.com) - Google TIDAK
-  mengindeks isi iframe lintas-domain sebagai milik disdik-ternate.com, jadi yang
-  paling berpengaruh ke hasil pencarian adalah <title>/meta description HALAMAN INI
-  (bukan isi di dalam iframe-nya) - sudah ditulis memuat kata kunci "Si-ManDa" &
-  "Sistem Manajemen Data Pendidikan" supaya cocok dgn kata yang orang cari.
-  canonical + og:/twitter: ditambahkan supaya tampilan link di WhatsApp/Facebook/
-  hasil pencarian juga rapi, bukan cuma utk SEO. -->
-  <meta name="description" content="Si-ManDa (Sistem Manajemen Data) adalah platform resmi Dinas Pendidikan Kota Ternate untuk mengelola data satuan pendidikan, guru, tenaga kependidikan, peserta didik, dan laporan bulanan sekolah se-Kota Ternate.">
+  <title>Si-ManDa - Ternate</title>
+  <!-- PERUBAHAN (permintaan user - contoh acuan: hasil pencarian "SIPINTAR -
+  Ternate" milik sipintar-disdikternate.com, judul singkat + deskripsi berupa
+  kalimat "Selamat datang..." yang menjelaskan akronim nama aplikasinya): title
+  disingkat jadi "Si-ManDa - Ternate" (pola sama persis) & meta
+  description ditulis ulang sbg kalimat sambutan + akronim, BUKAN lagi daftar
+  kata kunci - supaya snippet yang Google tampilkan konsisten dgn kalimat
+  sambutan yang sama yang juga ditaruh sbg teks NYATA di <noscript> (lihat
+  <body>), karena Google lebih suka menampilkan meta description yang cocok
+  dgn isi teks asli di halaman, bukan cuma metadata tanpa teks pendukung. -->
+  <meta name="description" content="Selamat datang di website resmi &quot;Si-ManDa&quot; Dinas Pendidikan Kota Ternate. &quot;Si-ManDa&quot; merupakan akronim dari Sistem Manajemen Data pendidikan yang digunakan untuk mengelola data satuan pendidikan, guru, tenaga kependidikan, peserta didik, dan laporan bulanan sekolah se-Kota Ternate.">
   <meta name="keywords" content="Si-ManDa, Si-ManDa Ternate, Sistem Manajemen Data, Sistem Manajemen Data Pendidikan, Dinas Pendidikan Kota Ternate, data pendidikan Ternate, dapodik Ternate">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://disdik-ternate.com/">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Si-ManDa - Dinas Pendidikan Kota Ternate">
-  <meta property="og:title" content="Si-ManDa - Sistem Manajemen Data Pendidikan Dinas Pendidikan Kota Ternate">
-  <meta property="og:description" content="Platform resmi Dinas Pendidikan Kota Ternate untuk mengelola data satuan pendidikan, guru, tenaga kependidikan, peserta didik, dan laporan bulanan sekolah se-Kota Ternate.">
+  <meta property="og:site_name" content="Si-ManDa - Ternate">
+  <meta property="og:title" content="Si-ManDa - Ternate">
+  <meta property="og:description" content="Selamat datang di website resmi &quot;Si-ManDa&quot; Dinas Pendidikan Kota Ternate. &quot;Si-ManDa&quot; merupakan akronim dari Sistem Manajemen Data pendidikan yang digunakan untuk mengelola data satuan pendidikan, guru, tenaga kependidikan, peserta didik, dan laporan bulanan sekolah se-Kota Ternate.">
   <meta property="og:url" content="https://disdik-ternate.com/">
   <meta property="og:image" content="https://disdik-ternate.com/logo.png">
   <meta property="og:locale" content="id_ID">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Si-ManDa - Sistem Manajemen Data Pendidikan Dinas Pendidikan Kota Ternate">
-  <meta name="twitter:description" content="Platform resmi Dinas Pendidikan Kota Ternate untuk mengelola data pendidikan se-Kota Ternate.">
+  <meta name="twitter:title" content="Si-ManDa - Ternate">
+  <meta name="twitter:description" content="Selamat datang di website resmi &quot;Si-ManDa&quot; Dinas Pendidikan Kota Ternate.">
   <meta name="twitter:image" content="https://disdik-ternate.com/logo.png">
   <link rel="icon" type="image/png" href="logo.png">
   <style>
@@ -309,6 +305,22 @@
   </style>
 </head>
 <body>
+  <!-- PERUBAHAN (permintaan user - contoh acuan hasil pencarian "SIPINTAR - Ternate"):
+  paragraf PENGANTAR nyata (bukan placeholder kosong) ditaruh di <noscript> - teks ini
+  betul-betul ada di HTML yang dikirim server (dibaca mesin pencari / browser tanpa
+  JS), BUKAN disembunyikan lewat display:none (itu dianggap teks tersembunyi/
+  manipulatif oleh Google) - kontennya SAMA PERSIS dgn meta description di atas,
+  supaya Google punya teks ASLI di halaman yang mendukung/mencocokkan description
+  itu, bukan cuma metadata tanpa teks pendukung sama sekali (lihat juga: aplikasi
+  Si-ManDa yang sesungguhnya dimuat lewat <iframe> JS, jadi TANPA JS halaman ini
+  memang cuma menampilkan info singkat ini, bukan trik SEO semata). -->
+  <noscript>
+    <main style="max-width:640px;margin:48px auto;padding:0 24px;font-family:'Plus Jakarta Sans',-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1e293b;background:#fff;">
+      <h1 style="font-size:1.4rem;margin-bottom:12px;">Si-ManDa - Dinas Pendidikan Kota Ternate</h1>
+      <p style="font-size:0.95rem;line-height:1.6;">Selamat datang di website resmi &quot;Si-ManDa&quot; Dinas Pendidikan Kota Ternate. &quot;Si-ManDa&quot; merupakan akronim dari Sistem Manajemen Data pendidikan yang digunakan untuk mengelola data satuan pendidikan, guru, tenaga kependidikan, peserta didik, dan laporan bulanan sekolah se-Kota Ternate.</p>
+      <p style="font-size:0.85rem;color:#64748b;margin-top:10px;">Aktifkan JavaScript pada browser Anda untuk membuka aplikasi Si-ManDa.</p>
+    </main>
+  </noscript>
   <div id="loadingScreen">
     <div class="ls-blob ls-blob-1"></div>
     <div class="ls-blob ls-blob-2"></div>
