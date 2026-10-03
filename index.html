@@ -209,10 +209,11 @@
     }
 
     .ls-title {
-      font-size: 1.32rem;
+      font-size: 1rem;
       font-weight: 800;
       letter-spacing: -0.01em;
       color: #ffffff;
+      white-space: nowrap;
     }
     .ls-subtitle {
       font-size: 0.72rem;
@@ -300,7 +301,7 @@
 
     @media (max-width: 420px) {
       .ls-card { padding: 34px 22px 28px; }
-      .ls-title { font-size: 1.15rem; }
+      .ls-title { font-size: clamp(0.72rem, 3.9vw, 0.95rem); }
     }
   </style>
 </head>
