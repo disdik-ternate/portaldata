@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://disdik-ternate.com/sitemap.xml
