@@ -303,6 +303,80 @@
       .ls-card { padding: 34px 22px 28px; }
       .ls-title { font-size: clamp(0.72rem, 3.9vw, 0.95rem); }
     }
+    /* ===== LOADING SCREEN v3 - modern elegan (override) ===== */
+    #loadingScreen {
+      background:
+        radial-gradient(900px 560px at 12% -6%, rgba(217,164,65,.16), transparent 60%),
+        radial-gradient(800px 560px at 104% 100%, rgba(200,140,50,.14), transparent 58%),
+        linear-gradient(165deg, #1a1816 0%, #131215 50%, #0b0b0d 100%) !important;
+    }
+    #loadingScreen .ls-card {
+      width: min(440px, 90vw) !important;
+      padding: 52px 40px 40px !important;
+      border-radius: 32px !important;
+      background: linear-gradient(180deg, rgba(34,32,30,.82), rgba(20,19,21,.78)) !important;
+      border: 1px solid transparent !important;
+      background-clip: padding-box !important;
+      box-shadow:
+        0 0 0 1px rgba(217,164,65,.18),
+        0 40px 90px -30px rgba(0,0,0,.85),
+        0 0 120px -40px rgba(217,164,65,.28),
+        inset 0 1px 0 rgba(255,255,255,.07) !important;
+      backdrop-filter: blur(22px) saturate(140%) !important;
+      -webkit-backdrop-filter: blur(22px) saturate(140%) !important;
+      overflow: hidden;
+    }
+    #loadingScreen .ls-card::before {
+      content: ""; position: absolute; top: 0; left: 18%; right: 18%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(242,197,114,.75), transparent);
+    }
+    #loadingScreen .ls-icon-wrap { width: 108px !important; height: 108px !important; margin-bottom: 28px !important; }
+    #loadingScreen .ls-icon-halo { inset: -22px !important; background: radial-gradient(circle, rgba(217,164,65,.38), transparent 68%) !important; }
+    #loadingScreen .ls-icon-ring {
+      inset: -7px !important; padding: 1.5px !important;
+      background: conic-gradient(from 0deg, rgba(242,197,114,0), #f2c572 35%, rgba(169,118,59,.15) 60%, rgba(242,197,114,0)) !important;
+      animation-duration: 3.2s !important;
+    }
+    #loadingScreen .ls-icon-badge {
+      background: radial-gradient(circle at 30% 24%, #ffffff, #eef1fb 72%) !important;
+      box-shadow: 0 18px 38px -12px rgba(217,164,65,.55), 0 0 0 5px rgba(255,255,255,.05), inset 0 1px 2px rgba(15,23,42,.08) !important;
+    }
+    #loadingScreen .ls-brand { font-size: 2.15rem !important; font-weight: 800 !important; letter-spacing: -0.025em !important; margin-bottom: 8px !important; }
+    #loadingScreen .ls-letter {
+      background: linear-gradient(180deg, #ffe7b0 10%, #e3b04f 55%, #b9822e 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent !important;
+      text-shadow: none !important;
+      filter: drop-shadow(0 4px 14px rgba(217,164,65,.38));
+    }
+    #loadingScreen .ls-title {
+      font-size: .92rem !important; font-weight: 500 !important; letter-spacing: .01em !important;
+      color: rgba(244,239,230,.88) !important;
+    }
+    #loadingScreen .ls-divider {
+      width: 64px !important; height: 2px !important; margin: 24px 0 22px !important; opacity: 1 !important;
+      background: linear-gradient(90deg, transparent, #f2c572, transparent) !important;
+    }
+    #loadingScreen .ls-status {
+      padding: 9px 18px !important; border-radius: 999px;
+      background: rgba(255,255,255,.04); border: 1px solid rgba(217,164,65,.16);
+      font-size: .8rem !important; font-weight: 500 !important; color: rgba(226,232,240,.82) !important;
+      gap: 10px !important;
+    }
+    #loadingScreen .ls-bar { max-width: 100% !important; width: 100% !important; height: 4px !important; margin-top: 30px !important; background: rgba(255,255,255,.07) !important; }
+    #loadingScreen .ls-bar-fill {
+      width: 42% !important;
+      background: linear-gradient(90deg, rgba(242,197,114,0), #f2c572 45%, #fff1cf 70%, rgba(242,197,114,0)) !important;
+      box-shadow: 0 0 18px rgba(242,197,114,.65) !important;
+    }
+    #loadingScreen .ls-footer {
+      bottom: 28px !important; font-size: .64rem !important; font-weight: 600 !important;
+      letter-spacing: .16em !important; text-transform: uppercase; color: rgba(203,213,225,.38) !important;
+    }
+    @media (max-width: 420px) {
+      #loadingScreen .ls-card { padding: 40px 24px 32px !important; }
+      #loadingScreen .ls-brand { font-size: 1.8rem !important; }
+    }
   </style>
 </head>
 <body>
