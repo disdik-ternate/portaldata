@@ -377,6 +377,37 @@
       #loadingScreen .ls-card { padding: 40px 24px 32px !important; }
       #loadingScreen .ls-brand { font-size: 1.8rem !important; }
     }
+
+    /* ===== v116: layar loading TANPA kartu/pembungkus - tampilan terbuka, minimalis & elegan =====
+       Kartu kaca dihapus; logo, nama, status & progress langsung berada di latar gelap.
+       Logo diberi cincin tipis emas yang berputar halus, progress berupa garis tipis. */
+    html #loadingScreen .ls-card {
+      background: none !important; border: 0 !important; box-shadow: none !important;
+      -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+      padding: 0 !important; width: auto !important; max-width: 90vw !important; border-radius: 0 !important;
+    }
+    html #loadingScreen .ls-card::before, html #loadingScreen .ls-card::after { display: none !important; }
+    html #loadingScreen .ls-blob { opacity: .55 !important; }
+    html #loadingScreen .ls-icon-wrap { width: 112px !important; height: 112px !important; margin: 0 auto 30px !important; }
+    html #loadingScreen .ls-icon-halo { inset: -30px !important; opacity: .7 !important; }
+    html #loadingScreen .ls-icon-ring {
+      inset: -10px !important; border-radius: 50% !important; border: 0 !important; background: conic-gradient(from 0deg, rgba(232,190,100,0) 0deg, rgba(232,190,100,0) 200deg, #e8be64 340deg, rgba(232,190,100,0) 360deg) !important;
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px)) !important; mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px)) !important;
+      animation: ls-spin 1.6s linear infinite !important; box-shadow: none !important;
+    }
+    html #loadingScreen .ls-icon-badge { box-shadow: 0 10px 40px -10px rgba(217,164,65,.55) !important; }
+    html #loadingScreen .ls-brand { text-align: center !important; }
+    html #loadingScreen .ls-title { text-align: center !important; opacity: .72 !important; font-weight: 500 !important; letter-spacing: .04em !important; }
+    html #loadingScreen .ls-divider { display: none !important; }
+    html #loadingScreen .ls-status {
+      background: none !important; border: 0 !important; box-shadow: none !important; padding: 0 !important;
+      margin: 22px auto 0 !important; justify-content: center !important; color: rgba(255,255,255,.55) !important; font-size: .82rem !important; letter-spacing: .02em !important;
+    }
+    html #loadingScreen .ls-bar {
+      width: 168px !important; max-width: 60vw !important; height: 2px !important; margin: 18px auto 0 !important;
+      background: rgba(255,255,255,.10) !important; border-radius: 2px !important; box-shadow: none !important;
+    }
+    html #loadingScreen .ls-footer { opacity: .5 !important; }
   </style>
 </head>
 <body>
