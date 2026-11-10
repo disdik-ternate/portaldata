@@ -100,7 +100,6 @@
   yang benar). Loading screen di atasnya menutupi jeda sesaat ini. -->
   <iframe
     id="appFrame"
-    onload="handleFrameLoaded()"
     allow="clipboard-read; clipboard-write"
   ></iframe>
   <script>
@@ -180,6 +179,9 @@
       const slug = ambilSlugDariPath_();
       return slug ? (BASE_SRC + "?view=" + encodeURIComponent(slug)) : BASE_SRC;
     }
+    // v126: listener dipasang lewat script (bukan atribut onload) supaya tidak error
+    // 'handleFrameLoaded is not defined' saat iframe kosong (about:blank) terpicu sebelum script ini dibaca.
+    document.getElementById('appFrame').addEventListener('load', handleFrameLoaded);
     document.getElementById('appFrame').src = bangunSrcIframe_();
 
     // Nama internal menu -> alamat path di address bar. '' (kosong)/'publik' -> alamat utama ('/').
