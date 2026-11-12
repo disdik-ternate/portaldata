@@ -182,7 +182,7 @@
     function bangunSrcIframe_() {
       if (MODE_QR_KARTU_) {
         var q_ = new URLSearchParams(window.location.search);
-        return BASE_SRC + '?kartu=' + encodeURIComponent(q_.get('nuptk') || '') + '&sig=' + encodeURIComponent(q_.get('sig') || '');
+        return BASE_SRC + '?kartu=' + encodeURIComponent(q_.get('nuptk') || '') + '&gd=' + encodeURIComponent(q_.get('gd') || '') + '&gb=' + encodeURIComponent(q_.get('gb') || '') + '&sig=' + encodeURIComponent(q_.get('sig') || '');
       }
       const params = window.location.search; // contoh: "?t=abc123"
       if (params) return BASE_SRC + params;
