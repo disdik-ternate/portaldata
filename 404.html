@@ -33,7 +33,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { width: 100%; height: 100%; overflow: hidden; font-family: "Plus Jakarta Sans", -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: #f8fafc; }
+    html, body { width: 100%; height: 100%; overflow: hidden; font-family: "Plus Jakarta Sans", -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: #1e293b; }
     iframe { width: 100%; height: 100vh; border: none; display: block; }
 
     /* ===== v118: indikator loading berupa GARIS BIRU TIPIS di tepi atas halaman =====
@@ -41,6 +41,8 @@
        Garis maju bertahap sampai ~90%, lalu penuh & memudar begitu aplikasi selesai
        dimuat (handleFrameLoaded menambah class .fade-out). */
     #loadingScreen { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 10; pointer-events: none; overflow: visible; }
+    /* v-gelap: penutup gelap penuh di bawah isi loading, supaya tampilan aplikasi di dalam iframe tidak tembus & terlihat ganda */
+    #loadingScreen::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #1e293b; z-index: -1; }
     #loadingScreen .ls-bar-fill {
       position: absolute; top: 0; left: 0; height: 100%; width: 0;
       background: linear-gradient(90deg, #60a5fa, #2563eb);
@@ -62,16 +64,16 @@
     #loadingScreen .ls-center { position: fixed; left: 0; right: 0; top: 50%; transform: translateY(-58%); display: flex; flex-direction: column; align-items: center; text-align: center; pointer-events: none; animation: ls-in .8s cubic-bezier(.22,1,.36,1) both; }
     @keyframes ls-in { from { opacity: 0; transform: translateY(-50%); } to { opacity: 1; transform: translateY(-58%); } }
     #loadingScreen .ls-logo { width: 76px; height: 76px; margin-bottom: 18px; }
-    #loadingScreen .ls-logo img { width: 100%; height: 100%; object-fit: contain; display: block; animation: ls-breathe 2.6s ease-in-out infinite; }
+    #loadingScreen .ls-logo img { width: 100%; height: 100%; object-fit: contain; display: block; filter: brightness(1.25) drop-shadow(0 0 14px rgba(96,165,250,.4)); animation: ls-breathe 2.6s ease-in-out infinite; }
     @keyframes ls-breathe { 0%,100% { transform: scale(1); opacity: .95; } 50% { transform: scale(1.06); opacity: 1; } }
-    #loadingScreen .ls-name { font-size: 1.35rem; font-weight: 800; letter-spacing: -.02em; color: #0f172a; }
-    #loadingScreen .ls-name b { color: #2563eb; font-weight: 800; }
-    #loadingScreen .ls-sub { margin-top: 3px; font-size: .76rem; font-weight: 500; color: #94a3b8; }
+    #loadingScreen .ls-name { font-size: 1.35rem; font-weight: 800; letter-spacing: -.02em; color: #f1f5f9; }
+    #loadingScreen .ls-name b { color: #60a5fa; font-weight: 800; }
+    #loadingScreen .ls-sub { margin-top: 3px; font-size: .76rem; font-weight: 500; color: #a7b4c8; }
     #loadingScreen .ls-dots { display: flex; gap: 6px; margin-top: 18px; }
-    #loadingScreen .ls-dots i { width: 6px; height: 6px; border-radius: 50%; background: #93c5fd; animation: ls-dot 1.2s ease-in-out infinite; }
+    #loadingScreen .ls-dots i { width: 6px; height: 6px; border-radius: 50%; background: #3b82f6; animation: ls-dot 1.2s ease-in-out infinite; }
     #loadingScreen .ls-dots i:nth-child(2) { animation-delay: .15s; } #loadingScreen .ls-dots i:nth-child(3) { animation-delay: .3s; }
-    @keyframes ls-dot { 0%,80%,100% { transform: scale(.6); opacity: .45; } 40% { transform: scale(1.15); opacity: 1; background: #2563eb; } }
-    #loadingScreen .ls-foot { position: fixed; bottom: 22px; left: 0; right: 0; text-align: center; font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; color: #b6c0cf; font-weight: 600; pointer-events: none; }
+    @keyframes ls-dot { 0%,80%,100% { transform: scale(.6); opacity: .45; } 40% { transform: scale(1.15); opacity: 1; background: #60a5fa; } }
+    #loadingScreen .ls-foot { position: fixed; bottom: 22px; left: 0; right: 0; text-align: center; font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; color: #7c8aa0; font-weight: 600; pointer-events: none; }
   </style>
 </head>
 <body>
