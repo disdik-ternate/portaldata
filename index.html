@@ -2,6 +2,20 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <!-- PEMINDAHAN KE V2 (18 Nov 2026): alamat lama ini dialihkan ke Si-ManDa V2.
+  Dikecualikan: (1) QR Kartu NUPTK yang sudah tercetak (/kartuNuptk/qr/profilgtk) dan tab cetak
+  aplikasi lama (/kartuNuptk/cetakkartu) - keduanya masih dilayani aplikasi lama; (2) alamat
+  dengan #lama (jalan darurat admin untuk membuka aplikasi lama). Setelah semua kartu lama
+  diurus dan aplikasi lama dimatikan, pengecualian ini boleh dihapus. -->
+  <script>
+    (function () {
+      var ALAMAT_BARU = 'https://si-manda.disdik-ternate.com/';
+      var p = window.location.pathname;
+      var tetapDiLama = /^\/kartunuptk\/(qr\/profilgtk|cetakkartu)\/?$/i.test(p) || window.location.hash === '#lama';
+      if (!tetapDiLama) window.location.replace(ALAMAT_BARU);
+    })();
+  </script>
+  <noscript><meta http-equiv="refresh" content="0;url=https://si-manda.disdik-ternate.com/"></noscript>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="io5gimUllWAA99ed-iczSsHleTac9bmilujgCCPTOHw" />
   <title>Si-ManDa - DisdikTTE</title>
