@@ -37,15 +37,11 @@
     </style>
 </head>
 <body>
-    <!-- Menyembunyikan URL asli Apps Script: konten dimuat lewat iframe,
-         alamat yang tampil di browser tetap simanda.disdik-ternate.com/public/statusverif -->
-    <div id="loadingBox">Memuat status verifikasi laporan...</div>
-    <iframe id="frameVerif" style="display:none" allowfullscreen></iframe>
+    <!-- Dialihkan ke Si-ManDa V2 (verifikasi laporan), kode id dipertahankan -->
+    <div id="loadingBox">Mengalihkan ke Si-ManDa V2...</div>
 
     <script>
         (function () {
-            var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx9l17lWragZ9gRQDiJKCdEdf8zF4RsYCYobbxWxcHTc2l8-x7hV-yT2fimc9GkhEFu/exec';
-
             var params = new URLSearchParams(window.location.search);
             var id = params.get('id') || params.get('verifikasi') || '';
 
@@ -55,15 +51,7 @@
                 return;
             }
 
-            var frame = document.getElementById('frameVerif');
-            var box = document.getElementById('loadingBox');
-
-            frame.onload = function () {
-                box.style.display = 'none';
-                frame.style.display = 'block';
-            };
-
-            frame.src = APPS_SCRIPT_URL + '?verifikasi=' + encodeURIComponent(id);
+            location.replace('https://si-manda.disdik-ternate.com/public/statusverif?id=' + encodeURIComponent(id));
         })();
     </script>
 </body>
